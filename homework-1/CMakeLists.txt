@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.5)
 
 # When running locally build number not defined so set it default value of 0.
 if (NOT DEFINED ENV{TRAVIS_BUILD_NUMBER})
@@ -11,7 +11,11 @@ project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 # configure_file(version.h.in version.h)
 
+
+add_subdirectory(greetings)
 add_executable(helloworld_cli main.cpp)
+
+target_link_libraries(helloworld_cli PRIVATE greetings)
 # add_library(helloworld lib.cpp)
 # add_executable(test_version test_version.cpp)
 

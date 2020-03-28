@@ -1,8 +1,10 @@
 #include <iostream>
 
+#include "greetings.h"
+
 int main (int, char **)
 {
-  std::cout << "Hellow World!" << std::endl;
+  std::cout << greetings() << std::endl;
 
   return 0;
 }
