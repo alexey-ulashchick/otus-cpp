@@ -3,5 +3,5 @@
 
 TEST(greetings, basic)
 {
-    ASSERT_STREQ(greetings(), "Hello World!");
+    ASSERT_EQ(greetings(), "Hello World!");
 }

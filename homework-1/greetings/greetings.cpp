@@ -1,6 +1,7 @@
 #include "greetings.h"
+#include <string>
 
-const char* greetings()
+std::string greetings()
 {
   return "Hello World!";
 }

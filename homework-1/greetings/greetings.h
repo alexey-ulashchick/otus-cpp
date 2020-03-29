@@ -1,3 +1,4 @@
 #pragma onces
+#include <string>
 
-const char* greetings();
+std::string greetings();
