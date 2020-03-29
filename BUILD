@@ -24,5 +24,11 @@ pkg_deb(
     built_using = "bazel",
     description = "helloworld package",
     maintainer = "Alexey Ulashchick <a.ulashchick@gmail.com>",
-    version = "0.0.0",
+    version_file = ":generate_version_file",
+)
+
+genrule(
+    name = "generate_version_file",
+    outs = ["version_file"],
+    cmd = "echo 0.0.$${TRAVIS_BUILD_NUMBER} > $@",
 )
