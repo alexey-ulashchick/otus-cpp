@@ -24,5 +24,5 @@ pkg_deb(
     built_using = "bazel",
     description = "helloworld package",
     maintainer = "Alexey Ulashchick <a.ulashchick@gmail.com>",
-    version = "0.0.$(TRAVIS_BUILD_NUMBER)",
+    version = "0.0.0",
 )
