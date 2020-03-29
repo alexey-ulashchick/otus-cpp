@@ -1,5 +1,13 @@
 cmake_minimum_required(VERSION 3.5)
 
+
+
+# Place binaries and libraries according to GNU standards.
+include(GNUInstallDirs)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
+
 # When running locally build number not defined so set it default value of 0.
 if (NOT DEFINED ENV{TRAVIS_BUILD_NUMBER})
     set(ENV{TRAVIS_BUILD_NUMBER} 0)
@@ -7,23 +15,35 @@ endif()
 
 project(helloworld VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
-# find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-
-# configure_file(version.h.in version.h)
-
-
+###############################################################################
+#  Executable
+###############################################################################
 add_subdirectory(greetings)
 add_executable(helloworld_cli main.cpp)
 
 target_link_libraries(helloworld_cli PRIVATE greetings)
-# add_library(helloworld lib.cpp)
-# add_executable(test_version test_version.cpp)
 
-# set_target_properties(helloworld_cli helloworld test_version PROPERTIES
 set_target_properties(helloworld_cli PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
 )
+
+
+###############################################################################
+#  Testing
+###############################################################################
+include(cmake/googletest.cmake)
+fetch_googletest(
+    ${PROJECT_SOURCE_DIR}/cmake
+    ${PROJECT_BINARY_DIR}/googletest
+    )
+
+enable_testing()
+add_subdirectory(test)
+
+
+
+
 # target_include_directories(helloworld
 #     PRIVATE "${CMAKE_BINARY_DIR}"
 # )
