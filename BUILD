@@ -4,7 +4,7 @@ pkg_tar(
     name = "helloworld-bin",
     strip_prefix = "/src/main",
     package_dir = "/usr/bin",
-    srcs = ["//src/main:helloworld_cli"],
+    srcs = ["//src/main"],
     mode = "0755",
 )
 
