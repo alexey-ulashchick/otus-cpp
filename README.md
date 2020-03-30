@@ -21,7 +21,7 @@ bazel build //src/main:helloworld_cli
 ```
 
 ### Packaging
-This step usually does not need to be executed localy and part to [Travis pipeline](https://github.com/alexey-ulashchick/otus-cpp/.travis.yml). When need to be executed and build locally version of package should be passed as TRAVIS_BUILD_NUMBER vairable. host_force_python parameter enforses usage of Python 2.X. If Python 3.X is available on maching this parameter might be skipped.
+This step usually does not need to be executed localy and part to [Travis pipeline](https://github.com/alexey-ulashchick/otus-cpp/blob/master/.travis.yml). When need to be executed and build locally version of package should be passed as TRAVIS_BUILD_NUMBER vairable. host_force_python parameter enforses usage of Python 2.X. If Python 3.X is available on maching this parameter might be skipped.
 ```
 bazel build --action_env=TRAVIS_BUILD_NUMBER=15 --host_force_python=PY2 :deb-package
 ```
