@@ -1,5 +1,5 @@
 cc_binary(
-    name = "helloworld_cli",
+    name = "main",
     srcs = glob(["**/*.cpp"]),
     deps = [
         "//src/greetings:greetings_lib"

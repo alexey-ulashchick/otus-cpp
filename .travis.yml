@@ -7,7 +7,7 @@ before_script:
 - echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
 - sudo apt update && sudo apt install bazel
 script:
-- bazel test --host_force_python=PY2 //tests/greetings:tests
+- bazel test //tests
 - bazel build --action_env=TRAVIS_BUILD_NUMBER --host_force_python=PY2 :deb-package
 - mv bazel-bin/helloworld__amd64.deb helloworld-0.0."$TRAVIS_BUILD_NUMBER"-amd64.deb
 deploy:
