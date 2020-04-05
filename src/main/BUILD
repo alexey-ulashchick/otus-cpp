@@ -1,6 +1,6 @@
 cc_binary(
-    name = "main",
-    srcs = glob(["**/*.cpp"]),
+    name = "ip_table",
+    srcs = glob(["*.cpp"]),
     deps = [
         "//src/greetings:greetings_lib"
     ],
