@@ -1,18 +1,18 @@
-#ifndef TEMPLATE_IP_ADDRESS_H
-#define TEMPLATE_IP_ADDRESS_H
+#ifndef TEMPLATE_SRC_IP_ADDRESS_IP_ADDRESS_H
+#define TEMPLATE_SRC_IP_ADDRESS_IP_ADDRESS_H
 
 #include <iostream>
 
 class IpAddress {
 private:
-  unsigned char sec1;
-  unsigned char sec2;
-  unsigned char sec3;
-  unsigned char sec4;
+  unsigned char oct1;
+  unsigned char oct2;
+  unsigned char oct3;
+  unsigned char oct4;
 
-  IpAddress(unsigned char sec1, unsigned char sec2, unsigned char sec3,
-            unsigned char sec4)
-      : sec1{sec1}, sec2{sec2}, sec3{sec3}, sec4{sec4} {};
+  IpAddress(unsigned char oct1, unsigned char oct2, unsigned char oct3,
+            unsigned char oct4)
+      : oct1{oct1}, oct2{oct2}, oct3{oct3}, oct4{oct4} {};
 
 public:
   static IpAddress fromString(const std::string &str);
@@ -20,6 +20,9 @@ public:
   friend std::ostream &operator<<(std::ostream &os, const IpAddress &ipAddress);
 
   bool operator<(const IpAddress &val) const;
+  bool isMatch(unsigned char oct1) const;
+  bool isMatch(unsigned char oct1, unsigned char oct2) const;
+  bool isMatchAny(unsigned char oct) const;
 };
 
 #endif

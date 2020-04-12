@@ -4,10 +4,10 @@
 #include <vector>
 
 std::ostream &operator<<(std::ostream &os, const IpAddress &ipAddress) {
-  os << static_cast<unsigned>(ipAddress.sec1) << '.'
-     << static_cast<unsigned>(ipAddress.sec2) << '.'
-     << static_cast<unsigned>(ipAddress.sec3) << '.'
-     << static_cast<unsigned>(ipAddress.sec4);
+  os << static_cast<unsigned>(ipAddress.oct1) << '.'
+     << static_cast<unsigned>(ipAddress.oct2) << '.'
+     << static_cast<unsigned>(ipAddress.oct3) << '.'
+     << static_cast<unsigned>(ipAddress.oct4);
   return os;
 }
 
@@ -32,13 +32,25 @@ IpAddress IpAddress::fromString(const std::string &str) {
 }
 
 bool IpAddress::operator<(const IpAddress &val) const {
-  if (sec1 != val.sec1) {
-    return val.sec1 < sec1;
-  } else if (sec2 != val.sec2) {
-    return val.sec2 < sec2;
-  } else if (sec3 != val.sec3) {
-    return val.sec3 < sec3;
+  if (oct1 != val.oct1) {
+    return val.oct1 < oct1;
+  } else if (oct2 != val.oct2) {
+    return val.oct2 < oct2;
+  } else if (oct3 != val.oct3) {
+    return val.oct3 < oct3;
   } else {
-    return val.sec4 < sec4;
+    return val.oct4 < oct4;
   }
 }
+
+bool IpAddress::isMatch(unsigned char oct1) const {
+  return this->oct1 == oct1;
+};
+
+bool IpAddress::isMatch(unsigned char oct1, unsigned char oct2) const {
+  return this->oct1 == oct1 && this->oct2 == oct2;
+};
+
+bool IpAddress::isMatchAny(unsigned char oct) const {
+  return oct1 == oct || oct2 == oct || oct3 == oct || oct4 == oct;
+};
