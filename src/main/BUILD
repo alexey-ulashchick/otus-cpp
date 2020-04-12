@@ -1,8 +1,8 @@
 cc_binary(
-    name = "ip_table",
+    name = "ip_filter",
     srcs = glob(["*.cpp"]),
     deps = [
-        "//src/greetings:greetings_lib"
+        "//src/ip_address:ip_address_lib"
     ],
     visibility = ["//visibility:public"],
 )
