@@ -1,9 +1,9 @@
-#include "src/ip_address/ip_address.h"
 #include "src/ip_address/filter.h"
+#include "src/ip_address/ip_address.h"
+#include <algorithm>
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include <algorithm>
 
 std::string getFirstIpFromTabulatedString(const std::string &str) {
   std::stringstream ss(str);
