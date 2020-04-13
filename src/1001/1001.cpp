@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
 #include <stack>
 
 int main(int, char **) {
@@ -7,8 +7,8 @@ int main(int, char **) {
   uint64_t value;
 
   while (std::cin >> value) {
-		nums.push(value);
-	}
+    nums.push(value);
+  }
 
   while (!nums.empty()) {
     printf("%.4f\n", std::sqrt(nums.top()));
