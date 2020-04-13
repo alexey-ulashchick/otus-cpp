@@ -1,6 +1,7 @@
 #include "ip_address.h"
 #include <iostream>
 #include <string>
+#include <tuple>
 #include <vector>
 
 std::ostream &operator<<(std::ostream &os, const IpAddress &ipAddress) {
@@ -41,6 +42,11 @@ bool IpAddress::operator<(const IpAddress &val) const {
   } else {
     return val.oct4 < oct4;
   }
+}
+
+bool IpAddress::operator==(const IpAddress &val) const {
+  return std::tie(oct1, oct2, oct3, oct4) ==
+         std::tie(val.oct1, val.oct2, val.oct3, val.oct4);
 }
 
 bool IpAddress::isMatch(unsigned char oct1) const {

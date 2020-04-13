@@ -20,6 +20,8 @@ public:
   friend std::ostream &operator<<(std::ostream &os, const IpAddress &ipAddress);
 
   bool operator<(const IpAddress &val) const;
+  bool operator==(const IpAddress &val) const;
+
   bool isMatch(unsigned char oct1) const;
   bool isMatch(unsigned char oct1, unsigned char oct2) const;
   bool isMatchAny(unsigned char oct) const;
