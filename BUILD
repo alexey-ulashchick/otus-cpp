@@ -4,7 +4,7 @@ pkg_tar(
     name = "ip_filter_bin",
     strip_prefix = "/src/main",
     package_dir = "/usr/bin",
-    srcs = ["//src/main"],
+    srcs = ["//src/main:ip_filter"],
     mode = "0755",
 )
 

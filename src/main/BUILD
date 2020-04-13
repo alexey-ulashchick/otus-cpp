@@ -1,5 +1,5 @@
 cc_binary(
-    name = "main",
+    name = "ip_filter",
     srcs = glob(["*.cpp"]),
     deps = [
         "//src/ip_address:ip_address_lib"

@@ -7,17 +7,17 @@ Resulting binaries might be found in appropriate bintray:
 
 ### Running tests
 ```
-bazel test //tests
+bazel test --test_output=all //tests
 ```
 
 ### Build binary
 ```
-bazel build //src/main:helloworld_cli
+bazel build //src/main:ip_filter
 ```
 
 ### Run binary
 ```
-./bazel-bin/src/main/main
+./bazel-bin/src/main/ip_filter
 ```
 
 ### Packaging
