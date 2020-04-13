@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <algorithm>
 
 std::string getFirstIpFromTabulatedString(const std::string &str) {
   std::stringstream ss(str);
