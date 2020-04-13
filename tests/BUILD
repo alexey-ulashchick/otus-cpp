@@ -1,6 +1,6 @@
 test_suite(
     name = "tests",
     tests = [
-      "//tests/greetings:tests"
+      "//tests/ip_address:tests"
     ]
 )

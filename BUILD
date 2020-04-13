@@ -1,7 +1,7 @@
 load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_tar", "pkg_deb")
 
 pkg_tar(
-    name = "helloworld-bin",
+    name = "ip_filter_bin",
     strip_prefix = "/src/main",
     package_dir = "/usr/bin",
     srcs = ["//src/main"],
@@ -12,17 +12,17 @@ pkg_tar(
     name = "debian-data",
     extension = "tar.gz",
     deps = [
-        ":helloworld-bin",
+        ":ip_filter_bin",
     ],
 )
 
 pkg_deb(
     name = "deb-package",
     data = ":debian-data",
-    package = "helloworld",
+    package = "ip_filter",
     architecture = "amd64",
     built_using = "bazel",
-    description = "helloworld package",
+    description = "ip_filter package",
     maintainer = "Alexey Ulashchick <a.ulashchick@gmail.com>",
     version_file = ":generate_version_file",
 )

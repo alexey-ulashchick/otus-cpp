@@ -9,9 +9,9 @@ before_script:
 script:
 - bazel test //tests
 - bazel build --action_env=TRAVIS_BUILD_NUMBER --host_force_python=PY2 :deb-package
-- mv bazel-bin/helloworld__amd64.deb helloworld-0.0."$TRAVIS_BUILD_NUMBER"-amd64.deb
+- mv bazel-bin/ip_filter__amd64.deb ip_filter-0.0."$TRAVIS_BUILD_NUMBER"-amd64.deb
 deploy:
   provider: script
   skip_cleanup: true
   script:
-  - curl -T helloworld-0.0.$TRAVIS_BUILD_NUMBER-amd64.deb -ualexey-ulashchick:$BINTRAY_API_KEY "https://api.bintray.com/content/alexey-ulashchick/otus-cpp/homework-1/$TRAVIS_BUILD_NUMBER/helloworld-0.0.$TRAVIS_BUILD_NUMBER-amd64.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+  - curl -T ip_filter-0.0.$TRAVIS_BUILD_NUMBER-amd64.deb -ualexey-ulashchick:$BINTRAY_API_KEY "https://api.bintray.com/content/alexey-ulashchick/otus-cpp/homework-2/$TRAVIS_BUILD_NUMBER/ip_filter-0.0.$TRAVIS_BUILD_NUMBER-amd64.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
